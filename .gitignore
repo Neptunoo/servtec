@@ -1,0 +1,27 @@
+# Visual Studio
+bin
+obj
+*.sln.ide
+*.suo
+*.user
+.vs
+_PublishedWebsites
+
+# macOS
+.DS_Store
+
+# NuGet
+/packages
+
+# Node JS
+node_modules
+
+# CI
+/artifacts
+build/tools/*
+!build/tools/*.zip
+
+# Tests results
+/TestResults
+/net4.xml
+/netcoreapp2.xml
