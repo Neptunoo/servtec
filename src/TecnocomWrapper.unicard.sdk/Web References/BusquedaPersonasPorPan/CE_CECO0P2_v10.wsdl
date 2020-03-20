@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax285="http://bci/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax283="http://mensajeria/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://bci" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://bci" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>(BUSQUEDA Y SELECC. DE PERSONA POR PAN BCI V10</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema xmlns:ax286="http://mensajeria/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://bci/xsd">
+      <xs:import namespace="http://mensajeria/xsd" />
+      <xs:import namespace="http://mensajeria/xsd" />
+      <xs:complexType name="Entrada_CECO0P2">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ax286:EntradaExtendida">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="pan" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Respuesta_CECO0P2">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ax286:Respuesta">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="contratos" nillable="true" type="ax285:Respuesta_CECO0P2_Registro_CECO0P2" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Respuesta_CECO0P2_Registro_CECO0P2">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ax286:RegistroNewAge">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="apelargo" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="apelli1" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="apelli2" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="codaptcor" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="codpostal" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="codprov" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="desprov" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="identcli" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="nivseg" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="nomcomp" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="nomlargo" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="nomvia" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="numdoc" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="numvia" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="razsoc" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="tipdoc" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="tipper" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="tipvia" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="viacomp" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://mensajeria/xsd">
+      <xs:complexType name="OperationData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="avanzar" type="xs:boolean" />
+          <xs:element minOccurs="0" name="canal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="claveFin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="claveInicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="entidad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idioma" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="pantPagina" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="retroceder" type="xs:boolean" />
+          <xs:element minOccurs="0" name="securityHash" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EntradaExtendida">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="Respuesta">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="claveFin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="claveInicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="descRetorno" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="indMasDatos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="pantPagina" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="retorno" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="securityToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tiempoEjecucion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="totalRegistros" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegistroNewAge">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="registro_Numero" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ax284="http://mensajeria/xsd" xmlns:ax287="http://bci/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://bci">
+      <xs:import namespace="http://mensajeria/xsd" />
+      <xs:import namespace="http://bci/xsd" />
+      <xs:element name="runService">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="opData" nillable="true" type="ax284:OperationData" />
+            <xs:element minOccurs="0" name="eEntrada" nillable="true" type="ax287:Entrada_CECO0P2" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="runServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax287:Respuesta_CECO0P2" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echo_Service">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echo_ServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="echo_ServiceRequest">
+    <wsdl:part name="parameters" element="ns:echo_Service" />
+  </wsdl:message>
+  <wsdl:message name="echo_ServiceResponse">
+    <wsdl:part name="parameters" element="ns:echo_ServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="runServiceRequest">
+    <wsdl:part name="parameters" element="ns:runService" />
+  </wsdl:message>
+  <wsdl:message name="runServiceResponse">
+    <wsdl:part name="parameters" element="ns:runServiceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CE_CECO0P2_v10PortType">
+    <wsdl:operation name="echo_Service">
+      <wsdl:input wsaw:Action="urn:echo_Service" message="ns:echo_ServiceRequest" />
+      <wsdl:output wsaw:Action="urn:echo_ServiceResponse" message="ns:echo_ServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="runService">
+      <wsdl:input wsaw:Action="urn:runService" message="ns:runServiceRequest" />
+      <wsdl:output wsaw:Action="urn:runServiceResponse" message="ns:runServiceResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CE_CECO0P2_v10Soap11Binding" type="ns:CE_CECO0P2_v10PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="echo_Service">
+      <soap:operation soapAction="urn:echo_Service" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runService">
+      <soap:operation soapAction="urn:runService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CE_CECO0P2_v10Soap12Binding" type="ns:CE_CECO0P2_v10PortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="echo_Service">
+      <soap12:operation soapAction="urn:echo_Service" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runService">
+      <soap12:operation soapAction="urn:runService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CE_CECO0P2_v10HttpBinding" type="ns:CE_CECO0P2_v10PortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="echo_Service">
+      <http:operation location="echo_Service" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runService">
+      <http:operation location="runService" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CE_CECO0P2_v10">
+    <wsdl:port name="CE_CECO0P2_v10HttpSoap11Endpoint" binding="ns:CE_CECO0P2_v10Soap11Binding">
+      <soap:address location="" />
+    </wsdl:port>
+    <wsdl:port name="CE_CECO0P2_v10HttpsSoap11Endpoint" binding="ns:CE_CECO0P2_v10Soap11Binding">
+      <soap:address location="https://procemisorqachile:448/axis2SMU/services/CE_CECO0P2_v10.CE_CECO0P2_v10HttpsSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="CE_CECO0P2_v10HttpsSoap12Endpoint" binding="ns:CE_CECO0P2_v10Soap12Binding">
+      <soap12:address location="https://procemisorqachile:448/axis2SMU/services/CE_CECO0P2_v10.CE_CECO0P2_v10HttpsSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="CE_CECO0P2_v10HttpSoap12Endpoint" binding="ns:CE_CECO0P2_v10Soap12Binding">
+      <soap12:address location="" />
+    </wsdl:port>
+    <wsdl:port name="CE_CECO0P2_v10HttpsEndpoint" binding="ns:CE_CECO0P2_v10HttpBinding">
+      <http:address location="https://procemisorqachile:448/axis2SMU/services/CE_CECO0P2_v10.CE_CECO0P2_v10HttpsEndpoint/" />
+    </wsdl:port>
+    <wsdl:port name="CE_CECO0P2_v10HttpEndpoint" binding="ns:CE_CECO0P2_v10HttpBinding">
+      <http:address location="" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ax2211="http://mensajeria/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax2213="http://smu/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://smu" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://smu" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>ACUSE DE RECIBO V10</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema xmlns:ax2212="http://mensajeria/xsd" xmlns:ax2215="http://smu/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://smu">
+      <xs:import namespace="http://mensajeria/xsd" />
+      <xs:import namespace="http://smu/xsd" />
+      <xs:element name="runService">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="opData" nillable="true" type="ax2212:OperationData" />
+            <xs:element minOccurs="0" name="eEntrada" nillable="true" type="ax2215:Entrada_CEMO0RE" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="runServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax2215:Respuesta_CEMO0RE" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echo_Service">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="echo_ServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:ax2214="http://mensajeria/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://smu/xsd">
+      <xs:import namespace="http://mensajeria/xsd" />
+      <xs:import namespace="http://mensajeria/xsd" />
+      <xs:complexType name="Entrada_CEMO0RE">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ax2214:EntradaExtendida">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="pan" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Respuesta_CEMO0RE">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ax2214:Respuesta">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="contratos" nillable="true" type="ax2213:Respuesta_CEMO0RE_Registro_CEMO0RE" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Respuesta_CEMO0RE_Registro_CEMO0RE">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ax2214:RegistroNewAge">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://mensajeria/xsd">
+      <xs:complexType name="OperationData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="avanzar" type="xs:boolean" />
+          <xs:element minOccurs="0" name="canal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="claveFin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="claveInicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="entidad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idioma" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="pantPagina" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="retroceder" type="xs:boolean" />
+          <xs:element minOccurs="0" name="securityHash" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EntradaExtendida">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="Respuesta">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="claveFin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="claveInicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="descRetorno" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="indMasDatos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="pantPagina" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="retorno" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="securityToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tiempoEjecucion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="totalRegistros" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegistroNewAge">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="registro_Numero" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="echo_ServiceRequest">
+    <wsdl:part name="parameters" element="ns:echo_Service" />
+  </wsdl:message>
+  <wsdl:message name="echo_ServiceResponse">
+    <wsdl:part name="parameters" element="ns:echo_ServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="runServiceRequest">
+    <wsdl:part name="parameters" element="ns:runService" />
+  </wsdl:message>
+  <wsdl:message name="runServiceResponse">
+    <wsdl:part name="parameters" element="ns:runServiceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CE_CEMO0RE_SMUv10PortType">
+    <wsdl:operation name="echo_Service">
+      <wsdl:input wsaw:Action="urn:echo_Service" message="ns:echo_ServiceRequest" />
+      <wsdl:output wsaw:Action="urn:echo_ServiceResponse" message="ns:echo_ServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="runService">
+      <wsdl:input wsaw:Action="urn:runService" message="ns:runServiceRequest" />
+      <wsdl:output wsaw:Action="urn:runServiceResponse" message="ns:runServiceResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CE_CEMO0RE_SMUv10Soap11Binding" type="ns:CE_CEMO0RE_SMUv10PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="echo_Service">
+      <soap:operation soapAction="urn:echo_Service" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runService">
+      <soap:operation soapAction="urn:runService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CE_CEMO0RE_SMUv10Soap12Binding" type="ns:CE_CEMO0RE_SMUv10PortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="echo_Service">
+      <soap12:operation soapAction="urn:echo_Service" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runService">
+      <soap12:operation soapAction="urn:runService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CE_CEMO0RE_SMUv10HttpBinding" type="ns:CE_CEMO0RE_SMUv10PortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="echo_Service">
+      <http:operation location="echo_Service" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runService">
+      <http:operation location="runService" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CE_CEMO0RE_SMUv10">
+    <wsdl:port name="CE_CEMO0RE_SMUv10HttpSoap11Endpoint" binding="ns:CE_CEMO0RE_SMUv10Soap11Binding">
+      <soap:address location="" />
+    </wsdl:port>
+    <wsdl:port name="CE_CEMO0RE_SMUv10HttpsSoap11Endpoint" binding="ns:CE_CEMO0RE_SMUv10Soap11Binding">
+      <soap:address location="https://procemisorqachile:448/axis2SMU/services/CE_CEMO0RE_SMUv10.CE_CEMO0RE_SMUv10HttpsSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="CE_CEMO0RE_SMUv10HttpSoap12Endpoint" binding="ns:CE_CEMO0RE_SMUv10Soap12Binding">
+      <soap12:address location="" />
+    </wsdl:port>
+    <wsdl:port name="CE_CEMO0RE_SMUv10HttpsSoap12Endpoint" binding="ns:CE_CEMO0RE_SMUv10Soap12Binding">
+      <soap12:address location="https://procemisorqachile:448/axis2SMU/services/CE_CEMO0RE_SMUv10.CE_CEMO0RE_SMUv10HttpsSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="CE_CEMO0RE_SMUv10HttpsEndpoint" binding="ns:CE_CEMO0RE_SMUv10HttpBinding">
+      <http:address location="https://procemisorqachile:448/axis2SMU/services/CE_CEMO0RE_SMUv10.CE_CEMO0RE_SMUv10HttpsEndpoint/" />
+    </wsdl:port>
+    <wsdl:port name="CE_CEMO0RE_SMUv10HttpEndpoint" binding="ns:CE_CEMO0RE_SMUv10HttpBinding">
+      <http:address location="" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

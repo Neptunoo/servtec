@@ -1,0 +1,27 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/packages
+/.vs
+/SAVConciliacionMovimientos-API/bin
+/SAVConciliacionMovimientos-API/obj/Debug
+/SAVConciliacionMovimientos-API/SAVConciliacionMovimientos-API.csproj.user
+/SAVConciliacionMovimientos-API.Tests/obj/Debug
+/tecnocom.sdk/obj/Debug
+/SAVConciliacionMovimientos-API.Tests/bin/Debug
+/tecnocom.sdk/bin
+/TecnocomWrapper.unicard.sdk.Tests/bin/Debug
+/TecnocomWrapper.unicard.sdk.Tests/obj/Debug
+*.user
+/SAVConciliacionMovimientos-API/obj/Cert
+/SAVConciliacionMovimientos-API/obj/Release/Package/PackageTmp
+/SAVConciliacionMovimientos-API.Tests/obj
+/tecnocom.sdk/obj
+/TecnocomWrapper.unicard.sdk.Tests/obj
+/SAVConciliacionMovimientos-API/obj/Release
+/TecnocomWrapper.unicard.sdk.Tests/bin/Cert
+/TecnocomWrapper.unicard.sdk.Tests/bin/Release
+/TecnocomWrapper.unicard.sdk/bin
+/TecnocomWrapper.unicard.sdk/.vs/TecnocomWrapper.unicard.sdk/v14
+/TecnocomWrapper.unicard.sdk/obj
