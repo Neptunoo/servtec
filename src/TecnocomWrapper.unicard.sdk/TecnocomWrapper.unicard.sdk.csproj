@@ -112,6 +112,7 @@
     <Compile Include="Clients\TecnocomCecl0lsWrapperClient.cs" />
     <Compile Include="Clients\TecnocomCecl0tlWrapperClient.cs" />
     <Compile Include="Clients\TecnocomCecl0tcWrapperClient.cs" />
+    <Compile Include="Clients\TecnocomCecou05WrapperClient.cs" />
     <Compile Include="Clients\TecnocomCeco005WrapperClient.cs" />
     <Compile Include="Clients\TecnocomCeco0p2WrapperClient.cs" />
     <Compile Include="Clients\TecnocomCecourpWrapperClient.cs" />
