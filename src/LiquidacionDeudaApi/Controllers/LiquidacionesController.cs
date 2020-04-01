@@ -18,24 +18,35 @@ namespace LiquidacionDeudaApi.Controllers
     {
         public async Task<IHttpActionResult> Get([FromBody] RequestLiquidacion payload)
         {
-            ResponseCliente respuesta = new ResponseCliente();
-            ResponseLiquidacion resposneLiquidacion = new ResponseLiquidacion();
-            Neg_Cupon logic = new Neg_Cupon();
-
-
-            var tecnocomCeco005WrapperClient = new TecnocomCeco005WrapperClient();
-            var prepagoDd = tecnocomCeco005WrapperClient.PrePagoDiezDias(payload.Cuenta, payload.Pan).FirstOrDefault();
-            if (prepagoDd != null)
+            var errrorAttributes = new Dictionary<string, string>()
             {
-                respuesta = await logic.ObtenerClienteCupon(respuesta, payload.RutCliente, payload.Canal);
-                resposneLiquidacion.PdfBuffer = await GenerarPdf(respuesta, prepagoDd);
-            }
-            else
+                { "payload.Cuenta",payload.Cuenta},
+                { "payload.Pan",payload.Pan},
+                { "payload.Canal",payload.Canal.ToString()},
+                { "payload.RutCliente",payload.RutCliente.ToString()}
+            };
+            try
             {
-                throw new InvalidEnumArgumentException("No encontrado");
-            }
+                ResponseCliente respuesta = new ResponseCliente();
+                ResponseLiquidacion resposneLiquidacion = new ResponseLiquidacion();
+                Neg_Cupon logic = new Neg_Cupon();
 
-            return Ok(resposneLiquidacion);
+
+                var tecnocomCeco005WrapperClient = new TecnocomCeco005WrapperClient();
+                var prepagoDd = tecnocomCeco005WrapperClient.PrePagoDiezDias(payload.Cuenta, payload.Pan).FirstOrDefault();
+                if (prepagoDd != null)
+                {
+                    respuesta = await logic.ObtenerClienteCupon(respuesta, payload.RutCliente, payload.Canal);
+                    resposneLiquidacion.PdfBuffer = await GenerarPdf(respuesta, prepagoDd);
+                }
+
+                return Ok(resposneLiquidacion);
+            }
+            catch (Exception error)
+            {
+                NewRelic.Api.Agent.NewRelic.NoticeError(error.StackTrace, errrorAttributes);
+                throw error;
+            }
         }
 
         private string GenerarHtml(ResponseCliente respuesta, Respuesta_CECO005_Registro_CECO005 registro)

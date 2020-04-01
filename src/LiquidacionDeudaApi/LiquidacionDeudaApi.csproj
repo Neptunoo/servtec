@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NewRelic.Api.Agent, Version=8.25.214.0, Culture=neutral, PublicKeyToken=06552fced0b33d87, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewRelic.Agent.Api.8.25.214\lib\net45\NewRelic.Api.Agent.dll</HintPath>
+    </Reference>
     <Reference Include="RestClient.Net, Version=3.2.0.0, Culture=neutral, PublicKeyToken=e5ebafcd8cc6b3d3, processorArchitecture=MSIL">
       <HintPath>..\packages\RestClient.Net.3.2.0\lib\net45\RestClient.Net.dll</HintPath>
     </Reference>
